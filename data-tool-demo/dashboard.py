@@ -72,13 +72,14 @@ def build():
             q(con, "select title, price_gbp, rating, category, url from books order by title")]
     con.close()
 
-    kpi = lambda label, val: f'<div class="kpi"><span>{label}</span><strong>{val}</strong></div>'
+    kpi = lambda key, label, val: f'<div class="kpi"><span data-i18n="{key}">{label}</span><strong>{val}</strong></div>'
     page = f"""<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1"><title>Book Market Dashboard — Demo project</title>
+<link rel="alternate" hreflang="en" href="https://mflaugh.github.io/bingqiling-tech/data-tool-demo/dashboard.html"><link rel="alternate" hreflang="zh-Hans" href="https://mflaugh.github.io/bingqiling-tech/data-tool-demo/dashboard.html?lang=zh"><link rel="alternate" hreflang="ja" href="https://mflaugh.github.io/bingqiling-tech/data-tool-demo/dashboard.html?lang=ja"><link rel="alternate" hreflang="ko" href="https://mflaugh.github.io/bingqiling-tech/data-tool-demo/dashboard.html?lang=ko"><link rel="alternate" hreflang="ru" href="https://mflaugh.github.io/bingqiling-tech/data-tool-demo/dashboard.html?lang=ru"><link rel="alternate" hreflang="es" href="https://mflaugh.github.io/bingqiling-tech/data-tool-demo/dashboard.html?lang=es"><link rel="alternate" hreflang="de" href="https://mflaugh.github.io/bingqiling-tech/data-tool-demo/dashboard.html?lang=de"><link rel="alternate" hreflang="x-default" href="https://mflaugh.github.io/bingqiling-tech/data-tool-demo/dashboard.html"><link rel="canonical" href="https://mflaugh.github.io/bingqiling-tech/data-tool-demo/dashboard.html">
 <style>
 :root{{--bg:#f6f8fb;--card:#fff;--ink:#0f172a;--muted:#64748b}}*{{box-sizing:border-box}}
-body{{margin:0;font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink)}}
-.banner{{background:#0f172a;color:#cbd5e1;text-align:center;font-size:.82rem;padding:.4rem}}
+body{{margin:0;font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans","PingFang SC","Hiragino Sans","Malgun Gothic",sans-serif;background:var(--bg);color:var(--ink)}}
+.banner{{background:#0f172a;color:#cbd5e1;text-align:center;font-size:.82rem;padding:.4rem 7.5rem .4rem .6rem}}.lang-fixed{{position:fixed;top:6px;right:8px;z-index:50}}.lang-fixed select{{font:13px system-ui,sans-serif;padding:2px 4px;border-radius:6px;border:1px solid #bbb;background:#fff;color:#222}}
 header{{padding:1.6rem 4vw .6rem}}h1{{margin:0;font-size:1.7rem}}header p{{margin:.3rem 0 0;color:var(--muted)}}
 main{{padding:1rem 4vw 3rem;display:grid;gap:1.2rem}}
 .kpis{{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem}}
@@ -94,25 +95,25 @@ th{{cursor:pointer;user-select:none;color:var(--muted);font-weight:600}}th:hover
 .tablewrap{{max-height:420px;overflow:auto}}footer{{color:var(--muted);font-size:.85rem;text-align:center;padding-bottom:2rem}}
 @media (max-width:600px){{.charts{{grid-template-columns:1fr}}}}
 </style></head><body>
-<div class="banner">Demo project / sample build. Data scraped from books.toscrape.com, a public sandbox site made for scraping practice. Prices are fictional.</div>
-<header><h1>Book Market Dashboard</h1><p>Scraped {total} listings across {ncat} categories · last run {scraped[:16].replace('T', ' ')} UTC</p></header>
+<div class="banner" data-i18n="dash.banner">Demo project / sample build. Data scraped from books.toscrape.com, a public sandbox site made for scraping practice. Prices are fictional.</div>
+<header><h1 data-i18n="dash.title">Book Market Dashboard</h1><p data-i18n="dash.sub" data-i18n-vars='{json.dumps({"n": total, "c": ncat, "t": scraped[:16].replace("T", " ")})}'>Scraped {total} listings across {ncat} categories · last run {scraped[:16].replace('T', ' ')} UTC</p></header>
 <main>
-<section class="kpis">{kpi("Books tracked", total)}{kpi("Average price", f"£{avg:.2f}")}{kpi("Price range", f"£{mn:.0f}–£{mx:.0f}")}
-{kpi("Average rating", f"{avg_rating:.2f} ★")}{kpi("In stock", f"{instock/total:.0%}")}{kpi("Categories", ncat)}</section>
+<section class="kpis">{kpi("kpi.books", "Books tracked", total)}{kpi("kpi.avg", "Average price", f"£{avg:.2f}")}{kpi("kpi.range", "Price range", f"£{mn:.0f}–£{mx:.0f}")}
+{kpi("kpi.rating", "Average rating", f"{avg_rating:.2f} ★")}{kpi("kpi.stock", "In stock", f"{instock/total:.0%}")}{kpi("kpi.cats", "Categories", ncat)}</section>
 <section class="charts">
-<div class="card"><h2>Price distribution</h2>{vbar(hist, color="#2563eb")}</div>
-<div class="card"><h2>Books by star rating</h2>{vbar(by_rating, color="#14b8a6")}</div>
-<div class="card"><h2>Most expensive categories (avg price, ≥10 books)</h2>{hbar(top_cats)}</div>
-<div class="card"><h2>Cheapest categories (avg price, ≥10 books)</h2>{hbar(low_cats)}</div>
-<div class="card"><h2>Largest categories (book count)</h2>{hbar(cnt_cats, fmt=str)}</div>
-<div class="card"><h2>Average price by rating</h2>{vbar(price_by_rating, color="#a855f7", fmt=lambda v: f"£{v}")}</div>
+<div class="card"><h2 data-i18n="ch.dist">Price distribution</h2>{vbar(hist, color="#2563eb")}</div>
+<div class="card"><h2 data-i18n="ch.rating">Books by star rating</h2>{vbar(by_rating, color="#14b8a6")}</div>
+<div class="card"><h2 data-i18n="ch.exp">Most expensive categories (avg price, ≥10 books)</h2>{hbar(top_cats)}</div>
+<div class="card"><h2 data-i18n="ch.cheap">Cheapest categories (avg price, ≥10 books)</h2>{hbar(low_cats)}</div>
+<div class="card"><h2 data-i18n="ch.largest">Largest categories (book count)</h2>{hbar(cnt_cats, fmt=str)}</div>
+<div class="card"><h2 data-i18n="ch.pbr">Average price by rating</h2>{vbar(price_by_rating, color="#a855f7", fmt=lambda v: f"£{v}")}</div>
 </section>
-<section class="card"><h2>Browse listings</h2>
-<div class="tools"><input id="q" placeholder="Search title…"><select id="cat"><option value="">All categories</option></select>
-<select id="rat"><option value="">Any rating</option><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select></div>
-<div class="tablewrap"><table><thead><tr><th data-k="title">Title</th><th data-k="category">Category</th><th data-k="price">Price</th><th data-k="rating">Rating</th></tr></thead>
+<section class="card"><h2 data-i18n="tbl.title">Browse listings</h2>
+<div class="tools"><input id="q" placeholder="Search title…" data-i18n-attr="placeholder:tbl.search"><select id="cat"><option value="" data-i18n="tbl.allcats">All categories</option></select>
+<select id="rat"><option value="" data-i18n="tbl.anyrating">Any rating</option><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select></div>
+<div class="tablewrap"><table><thead><tr><th data-k="title" data-i18n="th.title">Title</th><th data-k="category" data-i18n="th.cat">Category</th><th data-k="price" data-i18n="th.price">Price</th><th data-k="rating" data-i18n="th.rating">Rating</th></tr></thead>
 <tbody id="tb"></tbody></table></div><p id="count" style="color:var(--muted);margin:.6rem 0 0"></p></section>
-</main><footer>Sample build by Bingqiling Tech: Python scraper → SQLite/CSV → static HTML dashboard.</footer>
+</main><footer data-i18n="dash.footer">Sample build by Bingqiling Tech: Python scraper → SQLite/CSV → static HTML dashboard.</footer>
 <script>
 const ROWS={json.dumps(rows)};
 const tb=document.getElementById('tb'),q=document.getElementById('q'),cat=document.getElementById('cat'),rat=document.getElementById('rat');
@@ -123,10 +124,11 @@ function render(){{const t=q.value.toLowerCase();
  const r=ROWS.filter(x=>(!t||x.title.toLowerCase().includes(t))&&(!cat.value||x.category===cat.value)&&(!rat.value||x.rating==rat.value))
   .sort((a,b)=>(a[key]>b[key]?1:a[key]<b[key]?-1:0)*dir);
  tb.innerHTML=r.slice(0,300).map(x=>`<tr><td><a href="${{x.url}}" target="_blank" rel="noopener">${{esc(x.title)}}</a></td><td>${{esc(x.category)}}</td><td>£${{x.price.toFixed(2)}}</td><td>${{'★'.repeat(x.rating)}}</td></tr>`).join('');
- document.getElementById('count').textContent=`${{r.length}} matching books`+(r.length>300?' (showing first 300)':'');}}
+ const T=window.I18N?I18N.t:(k,v)=>k;document.getElementById('count').textContent=T('tbl.count',{{n:r.length}})+(r.length>300?T('tbl.first'):'');}}
 document.querySelectorAll('th').forEach(th=>th.onclick=()=>{{dir=key===th.dataset.k?-dir:1;key=th.dataset.k;render();}});
-[q,cat,rat].forEach(e=>e.oninput=render);render();
-</script></body></html>"""
+[q,cat,rat].forEach(e=>e.oninput=render);
+</script><div class="lang-fixed" data-lang-switch></div><script src="../assets/strings.js"></script><script src="../assets/i18n.js"></script>
+<script>render();document.addEventListener("i18n:change",render);</script></body></html>"""
     OUT.write_text(page, encoding="utf-8")
     print(f"Wrote {OUT} ({OUT.stat().st_size//1024} KB)")
 

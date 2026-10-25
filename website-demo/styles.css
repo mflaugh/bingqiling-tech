@@ -42,3 +42,6 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--brand);border-co
   .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--bg);padding:1rem;border-bottom:1px solid #eadccd}
   .nav-links.open{display:flex}
 }
+
+.lang-fixed{position:fixed;top:6px;right:8px;z-index:50}.lang-fixed select{font:13px system-ui,sans-serif;padding:2px 4px;border-radius:6px;border:1px solid #bbb;background:#fff;color:#222}
+.demo-banner{padding-right:7.5rem}

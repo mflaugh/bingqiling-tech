@@ -5,10 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ember &amp; Oak Coffee Roasters — Demo project</title>
 <meta name="description" content="Sample build: a responsive marketing site for a fictional coffee roaster.">
+<link rel="alternate" hreflang="en" href="https://mflaugh.github.io/bingqiling-tech/website-demo/index.html"><link rel="alternate" hreflang="zh-Hans" href="https://mflaugh.github.io/bingqiling-tech/website-demo/index.html?lang=zh"><link rel="alternate" hreflang="ja" href="https://mflaugh.github.io/bingqiling-tech/website-demo/index.html?lang=ja"><link rel="alternate" hreflang="ko" href="https://mflaugh.github.io/bingqiling-tech/website-demo/index.html?lang=ko"><link rel="alternate" hreflang="ru" href="https://mflaugh.github.io/bingqiling-tech/website-demo/index.html?lang=ru"><link rel="alternate" hreflang="es" href="https://mflaugh.github.io/bingqiling-tech/website-demo/index.html?lang=es"><link rel="alternate" hreflang="de" href="https://mflaugh.github.io/bingqiling-tech/website-demo/index.html?lang=de"><link rel="alternate" hreflang="x-default" href="https://mflaugh.github.io/bingqiling-tech/website-demo/index.html"><link rel="canonical" href="https://mflaugh.github.io/bingqiling-tech/website-demo/index.html">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="demo-banner" role="note">Demo project — sample build for a <strong>fictional</strong> business. Not a real company or client.</div>
+<div class="demo-banner" role="note" data-i18n="site.banner">Demo project — sample build for a <strong>fictional</strong> business. Not a real company or client.</div>
 <header class="nav">
   <a class="logo" href="#top">Ember &amp; Oak</a>
   <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">&#9776;</button>
@@ -77,15 +78,17 @@
     </label>
     <label>Message<textarea name="message" rows="4" required minlength="10"></textarea></label>
     <button class="btn" type="submit">Send message</button>
-    <p class="form-note">Demo form: validates in the browser and does not send data anywhere. In a client build it would connect to email, a CRM, or a form service.</p>
+    <p class="form-note" data-i18n="site.formnote">Demo form: validates in the browser and does not send data anywhere. In a client build it would connect to email, a CRM, or a form service.</p>
     <p id="form-result" role="status" aria-live="polite"></p>
   </form>
 </section>
 </main>
 
 <footer class="footer">
-  <p>Ember &amp; Oak is a fictional brand. Demo project / sample build by Bingqiling Tech.</p>
+  <p data-i18n="site.footer">Ember &amp; Oak is a fictional brand. Demo project / sample build by Bingqiling Tech.</p>
 </footer>
+<div class="lang-fixed" data-lang-switch></div>
+<script src="../assets/strings.js"></script><script src="../assets/i18n.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

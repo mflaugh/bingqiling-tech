@@ -13,3 +13,17 @@ All projects here are **demo projects / sample builds** made by us for fictional
 
 Contact: 652844@gmail.com · X: https://x.com/3Dfpkj9m84AFnI9
 The whole folder is static, so it can be hosted as-is on GitHub Pages, Netlify or Cloudflare Pages.
+
+## Languages (i18n)
+
+The portfolio is available in English, 简体中文, 日本語, 한국어, Русский, Español and Deutsch.
+It is fully static: strings live in `assets/strings.js`, and `assets/i18n.js` applies them.
+
+- On the first visit the language comes from the browser (`navigator.languages`). If none of the supported languages match, it falls back to English.
+- The header dropdown switches language and remembers the choice in `localStorage`.
+- `?lang=zh|ja|ko|ru|es|de|en` links can be shared, e.g. `https://mflaugh.github.io/bingqiling-tech/?lang=ja`.
+- `<html lang>`, the title and the meta description are localized, and `hreflang` alternates are in the `<head>`.
+- On the demo pages the demo labels and disclaimers are translated. The fictional businesses' own content (the coffee shop, the bot conversation, book data) stays in English on purpose.
+- Brand, legal name and USD prices are not translated.
+
+`python verify_demos.py` checks every page in every language: no missing keys, no console errors, the correct `<html lang>`, and that the switcher, persistence and `?lang` all work. Add `--base https://mflaugh.github.io/bingqiling-tech/` to test the live site.

@@ -12,7 +12,12 @@ JOBS = [
     ("data-tool-demo/dashboard.html", "data-dashboard.png", {"width": 1366, "height": 900}, False),
     ("data-tool-demo/dashboard.html", "data-dashboard-full.png", {"width": 1366, "height": 900}, True),
     ("index.html", "portfolio-index.png", {"width": 1366, "height": 860}, True),
-]
+    ("index.html?lang=zh", "portfolio-index-zh.png", {"width": 1366, "height": 860}, True),
+    ("index.html?lang=ja", "portfolio-index-ja.png", {"width": 1366, "height": 860}, True),
+    ("data-tool-demo/dashboard.html?lang=zh", "data-dashboard-zh.png", {"width": 1366, "height": 900}, False),
+    ("website-demo/index.html?lang=ja", "website-mobile-ja.png", {"width": 390, "height": 844}, False),
+] + [("index.html?lang=" + l, f"portfolio-index-{l}-top.png", {"width": 1366, "height": 860}, False)
+     for l in ["zh", "ja", "ko", "ru", "es", "de"]]
 errors = []
 with sync_playwright() as p:
     b = p.chromium.launch(executable_path="/usr/bin/google-chrome", args=["--no-sandbox"])
@@ -20,7 +25,9 @@ with sync_playwright() as p:
         pg = b.new_page(viewport=vp, device_scale_factor=1 if full else 2 if vp["width"] < 500 else 1)
         pg.on("pageerror", lambda e, s=src: errors.append(f"{s}: {e}"))
         pg.on("console", lambda m, s=src: errors.append(f"{s}: {m.text}") if m.type == "error" else None)
-        pg.goto((ROOT / src).as_uri()); pg.wait_for_load_state("networkidle")
+        path, _, q = src.partition("?")
+        pg.goto((ROOT / path).as_uri() + "?" + (q or "lang=en")); pg.wait_for_load_state("networkidle")
+        pg.evaluate("document.querySelectorAll('img').forEach(im=>im.loading='eager')"); pg.wait_for_timeout(800)
         pg.screenshot(path=SHOTS / out, full_page=full); pg.close()
         print("saved", SHOTS / out)
     b.close()
