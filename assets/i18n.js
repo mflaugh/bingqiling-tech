@@ -1,3 +1,4 @@
+(function(){var st=document.createElement("style");st.textContent=".lang-switch{-webkit-appearance:none;-moz-appearance:none;appearance:none;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23555' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\") !important;background-repeat:no-repeat !important;background-position:right .65em center !important;background-color:#fff;padding-right:2rem !important}";document.head.appendChild(st);})();
 /* Tiny static i18n: ?lang=xx > saved choice > browser languages > English. */
 (function () {
   var S = window.I18N_STRINGS || {};

@@ -79,7 +79,7 @@ def build():
 <style>
 :root{{--bg:#f6f8fb;--card:#fff;--ink:#0f172a;--muted:#64748b}}*{{box-sizing:border-box}}
 body{{margin:0;font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans","PingFang SC","Hiragino Sans","Malgun Gothic",sans-serif;background:var(--bg);color:var(--ink)}}
-.banner{{background:#0f172a;color:#cbd5e1;text-align:center;font-size:.82rem;padding:.4rem 7.5rem .4rem .6rem}}.lang-fixed{{position:fixed;top:6px;right:8px;z-index:50}}.lang-fixed select{{font:13px system-ui,sans-serif;padding:2px 4px;border-radius:6px;border:1px solid #bbb;background:#fff;color:#222}}
+.banner{{background:#0f172a;color:#cbd5e1;text-align:center;font-size:.82rem;padding:.4rem 7.5rem .4rem .6rem}}.lang-fixed{{position:fixed;top:6px;right:8px;z-index:50}}.lang-fixed select{{font:13px system-ui,sans-serif;padding:3px 1.8rem 3px .6rem;border-radius:6px;border:1px solid #bbb;background:#fff;color:#222}}
 header{{padding:1.6rem 4vw .6rem}}h1{{margin:0;font-size:1.7rem}}header p{{margin:.3rem 0 0;color:var(--muted)}}
 main{{padding:1rem 4vw 3rem;display:grid;gap:1.2rem}}
 .kpis{{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem}}
