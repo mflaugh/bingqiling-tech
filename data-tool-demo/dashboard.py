@@ -73,7 +73,7 @@ def build():
     con.close()
 
     kpi = lambda key, label, val: f'<div class="kpi"><span data-i18n="{key}">{label}</span><strong>{val}</strong></div>'
-    page = f"""<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+    page = f"""<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <meta name="viewport" content="width=device-width, initial-scale=1"><title>Book Market Dashboard — Demo project</title>
 <link rel="alternate" hreflang="en" href="https://mflaugh.github.io/bingqiling-tech/data-tool-demo/dashboard.html"><link rel="alternate" hreflang="zh-Hans" href="https://mflaugh.github.io/bingqiling-tech/data-tool-demo/dashboard.html?lang=zh"><link rel="alternate" hreflang="ja" href="https://mflaugh.github.io/bingqiling-tech/data-tool-demo/dashboard.html?lang=ja"><link rel="alternate" hreflang="ko" href="https://mflaugh.github.io/bingqiling-tech/data-tool-demo/dashboard.html?lang=ko"><link rel="alternate" hreflang="ru" href="https://mflaugh.github.io/bingqiling-tech/data-tool-demo/dashboard.html?lang=ru"><link rel="alternate" hreflang="es" href="https://mflaugh.github.io/bingqiling-tech/data-tool-demo/dashboard.html?lang=es"><link rel="alternate" hreflang="de" href="https://mflaugh.github.io/bingqiling-tech/data-tool-demo/dashboard.html?lang=de"><link rel="alternate" hreflang="x-default" href="https://mflaugh.github.io/bingqiling-tech/data-tool-demo/dashboard.html"><link rel="canonical" href="https://mflaugh.github.io/bingqiling-tech/data-tool-demo/dashboard.html">
 <style>
