@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bingqiling Tech — Websites, Automation &amp; Data Tools</title>
+<meta name="description" content="Bingqiling Tech is a software development company building websites, automation bots and data tools for small businesses worldwide.">
+<style>
+:root{--ink:#0f172a;--muted:#55627a;--brand:#4f46e5;--brand2:#06b6d4;--bg:#fff;--soft:#f5f7fb;--r:16px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg)}
+a{color:var(--brand)}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 6vw;position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);border-bottom:1px solid #eef0f5;z-index:5}
+.logo{font-weight:800;font-size:1.2rem;text-decoration:none;color:var(--ink)}.nav nav a{margin-left:1.4rem;text-decoration:none;color:var(--ink);font-weight:500}
+.hero{padding:6rem 6vw 4.5rem;background:radial-gradient(1200px 400px at 80% -10%,#e0e7ff,transparent),radial-gradient(800px 300px at 0% 0%,#cffafe,transparent)}
+.hero h1{font-size:clamp(2.1rem,5vw,3.4rem);line-height:1.1;margin:0 0 1rem;max-width:18ch}
+.hero p{font-size:1.2rem;color:var(--muted);max-width:60ch;margin:0 0 2rem}
+.btn{display:inline-block;background:var(--brand);color:#fff;padding:.85rem 1.5rem;border-radius:999px;text-decoration:none;font-weight:600}
+.btn.ghost{background:transparent;color:var(--brand);border:2px solid var(--brand);margin-left:.6rem}
+section{padding:4.5rem 6vw}section.soft{background:var(--soft)}
+h2{font-size:clamp(1.6rem,3vw,2.2rem);margin:0 0 .4rem}.sub{color:var(--muted);margin:0 0 2.2rem;max-width:65ch}
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.3rem}
+.svc{background:#fff;border:1px solid #e8ebf3;border-radius:var(--r);padding:1.6rem}
+.svc .ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;font-size:1.3rem;margin-bottom:.8rem}
+.svc h3{margin:0 0 .4rem}.svc ul{margin:.6rem 0 0;padding-left:1.1rem;color:var(--muted)}
+.demos{display:grid;gap:2rem}
+.demo{display:grid;grid-template-columns:1.15fr 1fr;gap:2rem;align-items:center;background:#fff;border-radius:var(--r);padding:1.5rem;box-shadow:0 2px 14px rgba(15,23,42,.06)}
+.demo img{width:100%;max-height:430px;object-fit:cover;object-position:top;border-radius:12px;border:1px solid #e5e7eb;display:block}
+.badge{display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:#fef3c7;color:#92400e;padding:.2rem .65rem;border-radius:999px;margin-bottom:.6rem}
+.demo h3{margin:0 0 .4rem;font-size:1.35rem}.demo p{color:var(--muted);margin:.3rem 0}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin:.8rem 0}.tags span{font-size:.8rem;background:var(--soft);padding:.2rem .6rem;border-radius:6px}
+.links a{margin-right:1rem;font-weight:600}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.2rem;counter-reset:s}
+.steps div{background:#fff;border-radius:var(--r);padding:1.3rem;border:1px solid #e8ebf3}
+.steps div::before{counter-increment:s;content:counter(s);display:inline-grid;place-items:center;width:2rem;height:2rem;border-radius:50%;background:var(--ink);color:#fff;font-weight:700;margin-bottom:.5rem}
+.steps h4{margin:0 0 .3rem}.steps p{margin:0;color:var(--muted);font-size:.95rem}
+.note{font-size:.9rem;color:var(--muted);border-left:3px solid #fbbf24;padding:.6rem 1rem;background:#fffbeb;border-radius:0 8px 8px 0;max-width:80ch}
+.contact{text-align:center}.contact p{color:var(--muted)}
+footer{text-align:center;padding:2rem;color:var(--muted);font-size:.9rem;border-top:1px solid #eef0f5}
+.prices{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.3rem}
+.pc{background:#fff;border:1px solid #e8ebf3;border-radius:var(--r);padding:1.4rem 1.6rem}.pc h3{margin:0 0 .6rem}
+.pc ul{list-style:none;margin:0;padding:0}.pc li{display:flex;justify-content:space-between;gap:1rem;padding:.55rem 0;border-bottom:1px dashed #e5e7eb}
+.pc li:last-child{border-bottom:0}.pc li span{color:var(--muted)}.pc li b{white-space:nowrap}
+.pnote{margin:1.4rem 0 0;font-weight:600}
+@media (max-width:820px){.demo{grid-template-columns:1fr}.nav nav a:not(:last-child){display:none}.btn.ghost{margin:.6rem 0 0}}
+</style>
+</head>
+<body>
+<header class="nav"><a class="logo" href="#">Bingqiling Tech</a>
+<nav><a href="#services">Services</a><a href="#demos">Demo projects</a><a href="#pricing">Pricing</a><a href="#process">Process</a><a href="#contact">Contact</a></nav></header>
+
+<div class="hero">
+  <h1>Websites, automation bots &amp; data tools that just work.</h1>
+  <p>Bingqiling Tech (Jiangsu Bingqiling Information Technology Co., Ltd.) is a software development company that builds practical software for small businesses
+     and startups worldwide: fast websites with hosting and maintenance, bots and scripts that automate
+     repetitive work, and data tools that turn the web into usable spreadsheets and dashboards.</p>
+  <a class="btn" href="#demos">See demo projects</a><a class="btn ghost" href="#contact">Start a project</a>
+</div>
+
+<section id="services">
+  <h2>Services</h2>
+  <p class="sub">Fixed-scope projects with clear deliverables, source code handed over, and optional ongoing support.</p>
+  <div class="services">
+    <div class="svc"><div class="ic">&#9633;</div><h3>Website build + hosting</h3>
+      <p>Responsive marketing sites, landing pages and small web apps.</p>
+      <ul><li>Mobile-first, fast, SEO basics</li><li>Contact forms and integrations</li><li>Shopify store setup</li><li>Hosting setup, domain, HTTPS</li><li>Monthly maintenance and updates</li></ul></div>
+    <div class="svc"><div class="ic">&#9881;</div><h3>Automation scripts &amp; bots</h3>
+      <p>Telegram/Discord bots and Python scripts that remove manual work.</p>
+      <ul><li>Booking and order intake bots</li><li>Alerts and notifications</li><li>API and spreadsheet integrations</li><li>Scheduled jobs</li></ul></div>
+    <div class="svc"><div class="ic">&#9636;</div><h3>Data tools</h3>
+      <p>Collect, clean and visualise data from websites and APIs.</p>
+      <ul><li>Web scrapers (where permitted)</li><li>CSV / SQLite / Google Sheets output</li><li>HTML dashboards and reports</li><li>Automated daily refresh</li></ul></div>
+  </div>
+</section>
+
+<section id="demos" class="soft">
+  <h2>Demo projects</h2>
+  <p class="sub">We are a new team, so instead of client case studies we built these working sample projects to show how we work.
+     <strong>They are demos built by us for fictional businesses, not client work.</strong> Each one runs, and the source is included.</p>
+  <div class="demos">
+    <article class="demo">
+      <img src="screenshots/website-desktop.png" alt="Screenshot of the coffee roaster demo website" loading="lazy">
+      <div><span class="badge">Demo project</span>
+        <h3>Ember &amp; Oak: small-business website</h3>
+        <p>A marketing site for a <em>fictional</em> coffee roaster, with a filterable product grid, live open/closed status, a validated contact form, and a mobile menu.</p>
+        <div class="tags"><span>HTML</span><span>CSS</span><span>Vanilla JS</span><span>No build step</span><span>Mobile-first</span></div>
+        <p class="links"><a href="website-demo/index.html">Open live demo →</a><a href="screenshots/website-mobile.png">Mobile view</a></p></div>
+    </article>
+    <article class="demo">
+      <img src="screenshots/telegram-bot.png" alt="Screenshot of the Telegram booking bot conversation" loading="lazy">
+      <div><span class="badge">Sample build</span>
+        <h3>Telegram booking-intake bot</h3>
+        <p>A bot that takes appointment bookings for a <em>fictional</em> barber shop: service, date, free slot, name, phone, then confirmation. It validates input, prevents double-booking, saves to CSV, and notifies the owner.</p>
+        <div class="tags"><span>Python</span><span>python-telegram-bot</span><span>pytest</span><span>Env-var config</span></div>
+        <p class="links"><a href="telegram-bot-demo/demo.html">View conversation →</a><a href="telegram-bot-demo/README.md">Source &amp; README</a></p></div>
+    </article>
+    <article class="demo">
+      <img src="screenshots/data-dashboard.png" alt="Screenshot of the book market data dashboard" loading="lazy">
+      <div><span class="badge">Demo project</span>
+        <h3>Web scraper + data dashboard</h3>
+        <p>Scrapes 1,000 listings from books.toscrape.com (a public sandbox site built for scraping practice), stores them in SQLite and CSV, and generates an offline HTML dashboard with charts and a searchable table.</p>
+        <div class="tags"><span>Python</span><span>requests</span><span>BeautifulSoup</span><span>SQLite</span><span>SVG charts</span></div>
+        <p class="links"><a href="data-tool-demo/dashboard.html">Open dashboard →</a><a href="data-tool-demo/README.md">Source &amp; README</a></p></div>
+    </article>
+  </div>
+</section>
+
+<section id="pricing">
+  <h2>Pricing (starting from)</h2>
+  <p class="sub">Typical starting prices in USD. Every project is quoted on its scope.</p>
+  <div class="prices">
+    <div class="pc"><h3>Websites</h3><ul>
+      <li><span>Landing page</span><b>from $300</b></li>
+      <li><span>Business website (5–10 pages)</span><b>from $800</b></li>
+      <li><span>Shopify store setup</span><b>from $500</b></li>
+      <li><span>Hosting &amp; maintenance</span><b>from $30/month</b></li></ul></div>
+    <div class="pc"><h3>Automation</h3><ul>
+      <li><span>Discord / Telegram bot</span><b>from $200</b></li></ul></div>
+    <div class="pc"><h3>Data tools</h3><ul>
+      <li><span>Scraper / price monitoring</span><b>from $300</b></li>
+      <li><span>Data pipeline + dashboard</span><b>from $800</b></li></ul></div>
+  </div>
+  <p class="pnote">Final quote after a free scoping call.</p>
+</section>
+
+<section id="process">
+  <h2>How we work</h2>
+  <p class="sub">Simple and transparent, from first message to handover.</p>
+  <div class="steps">
+    <div><h4>Scope</h4><p>A short call or chat to agree requirements, timeline and a fixed quote.</p></div>
+    <div><h4>Build</h4><p>Regular progress updates and a preview link you can test.</p></div>
+    <div><h4>Deliver</h4><p>Deployment, full source code, and a short handover guide.</p></div>
+    <div><h4>Support</h4><p>Optional hosting and maintenance plans after launch.</p></div>
+  </div>
+</section>
+
+<section id="contact" class="soft contact">
+  <h2>Have a project in mind?</h2>
+  <p>Tell us what you need and we'll reply with a plan and a quote.</p>
+  <p><a class="btn" href="mailto:652844@gmail.com">652844@gmail.com</a></p>
+  <p>X: <a href="https://x.com/3Dfpkj9m84AFnI9" target="_blank" rel="noopener">@3Dfpkj9m84AFnI9</a></p>
+  <p class="note" style="margin:1.5rem auto 0;text-align:left">All projects on this page are demo / sample builds created by Bingqiling Tech to show our capabilities. Brands such as "Ember &amp; Oak" and "Sample Barber" are fictional.</p>
+</section>
+<footer>© 2026 Bingqiling Tech · Jiangsu Bingqiling Information Technology Co., Ltd. · Software development, China<br>All projects shown are demo / sample builds, not client work.</footer>
+</body>
+</html>

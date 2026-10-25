@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.env
+telegram-bot-demo/bookings.csv
+telegram-bot-demo/sim_bookings.csv
+*.zip
+.DS_Store
