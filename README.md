@@ -11,7 +11,7 @@ All projects here are **demo projects / sample builds** made by us for fictional
 | `screenshots/` | PNG screenshots (headless Chrome) | `python take_screenshots.py` |
 | `verify_demos.py` | Headless-browser end-to-end checks | `python verify_demos.py` |
 
-Contact: 652844@gmail.com · X: https://x.com/3Dfpkj9m84AFnI9
+Contact: 652844@gmail.com · X: https://x.com/BingqilingTech
 The whole folder is static, so it can be hosted as-is on GitHub Pages, Netlify or Cloudflare Pages.
 
 ## Languages (i18n)

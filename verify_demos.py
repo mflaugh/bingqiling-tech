@@ -107,7 +107,7 @@ with sync_playwright() as p:
     t = i.inner_text("body")
     ok(all(x in t for x in ["Landing page", "from $300", "from $800", "from $500", "from $30/month", "from $200", "Final quote after a free scoping call."]), "index: pricing section complete (en)")
     ok("Jiangsu Bingqiling Information Technology Co., Ltd." in i.inner_text("footer"), "index: legal name in footer")
-    ok(i.locator("a[href='mailto:652844@gmail.com']").count() == 1 and i.locator("a[href='https://x.com/3Dfpkj9m84AFnI9']").count() == 1, "index: email + X links")
+    ok(i.locator("a[href='mailto:652844@gmail.com']").count() == 1 and i.locator("a[href='https://x.com/BingqilingTech']").count() == 1, "index: email + X links")
     ok(i.locator(".badge").count() == 3 and "demo / sample builds" in t, "index: demo labels kept")
     for l in LANGS:
         i.goto(url("index.html", f"?lang={l}"))
